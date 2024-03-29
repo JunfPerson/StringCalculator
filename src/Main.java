@@ -50,6 +50,8 @@ public class Main {
             String[] parts = input.split("\\s*\\+\\s*|\\s*\\-\\s*|\\s*\\*\\s*|\\s*\\/\\s*");
             int num1;
             int num2;
+
+
             if (parts.length != 2) {
                 throw new IllegalArgumentException("Ошибка: Некорректное выражение.");
             }
@@ -67,6 +69,10 @@ public class Main {
                 if ((Character.isDigit(parts[0].charAt(0)) && !Character.isDigit(parts[1].charAt(0))) || (!Character.isDigit(parts[0].charAt(0)) && Character.isDigit(parts[1].charAt(0)))) {
                     throw new IllegalArgumentException("Ошибка: либо арабские числа, либо римские!");
                 }
+                if (num1 < 1 || num1 > 10 || num2 < 1 || num2 > 10) {
+                    throw new IllegalArgumentException("Ошибка: Числа должны быть от 1 до 10.");
+                }
+
 
             } catch (NumberFormatException e) {
                 throw new IllegalArgumentException("Ощибка: Некорректный формат ввода");
